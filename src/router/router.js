@@ -1,6 +1,17 @@
+import HomeComp from '../components/HomeComp.vue'
+import AboutComp from '../components/AboutComp.vue'
 const routes = [
-    // { path: '/', component: Home },
-    // { path: '/about', component: About },
+    { 
+        path: '/', 
+        component: HomeComp ,
+        name:'home'
+    },
+    { 
+        path: '/about', 
+        component: AboutComp ,
+        name:'about'
+    },
+   
   ];
 
 export default routes;
