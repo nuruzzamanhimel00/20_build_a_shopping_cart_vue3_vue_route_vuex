@@ -2,6 +2,8 @@
   <div>
     <nav-comp></nav-comp>
      <router-view></router-view>
+
+    <product-description-drawer/>
   </div>
 </template>
 
