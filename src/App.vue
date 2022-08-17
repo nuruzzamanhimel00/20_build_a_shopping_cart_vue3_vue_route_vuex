@@ -10,12 +10,17 @@ import NavComp from '@/components/NavComp.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+     
+    }
+  },
   components: {
     NavComp
   }
 }
 </script>
 
-<style>
+<style >
 
 </style>
