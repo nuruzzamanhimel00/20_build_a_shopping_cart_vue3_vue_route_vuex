@@ -2,8 +2,7 @@
   <div>
     <nav-comp></nav-comp>
      <router-view></router-view>
-
-    <product-description-drawer/>
+     
   </div>
 </template>
 
@@ -16,6 +15,9 @@ export default {
     return {
      
     }
+  },
+  created(){
+    this.$store.commit('updateCartFromLocalStorage');
   },
   components: {
     NavComp

@@ -2,7 +2,7 @@
     <div>
     
         <div class="drawer-background" :class="{show:active}" @click.prevent="$emit('close-product-drower')" > </div>
-        <div class="drawer" :class="{show:active}">
+        <div class="drawer" :class="{show:active}" >
             <div class="drawer-close "   @click.prevent="$emit('close-product-drower')">
                 X
             </div>
@@ -10,14 +10,15 @@
                 <h1 class="text-center">{{product.name}}</h1>
                 <p class="description">{{product.description}}</p>
                 <h3 class="text-center">${{product.price.toFixed(2)}}</h3>
-                <div class="cart-total">
+                <!-- {{ product_total }} -->
+                <div class="cart-total" v-if="product_total">
                     <h3>Cart total</h3>
-                    <h4>${{product_total}}</h4>
+                    <h4>{{product_total}}</h4>
                 </div>
                 <div class="button">
-                    <button class="remove btn btn-danger btn-sm">Remove</button>
+                    <button class="remove btn btn-danger btn-sm" @click.prevent="onRemoveToCart(product)">Remove</button>
                     &nbsp; 
-                    <button class="add btn btn-success btn-sm">Add</button>
+                    <button class="add btn btn-success btn-sm" @click.prevent="onAddToCart(product)">Add</button>
                 </div>
             </div>
 
@@ -26,6 +27,7 @@
 </template>
 
 <script>
+import {mapMutations} from 'vuex'
 export default {
     props:['product','active'],
     data() {
@@ -35,7 +37,18 @@ export default {
     },
     computed:{
         product_total(){
-            return 56.5;
+            return this.$store.getters.productQuantity(this.product);
+            // return 5;
+        }
+    },
+    methods:{
+        ...mapMutations(['addTOCart','removeToCart']),
+        onAddToCart(product){
+            this.addTOCart(product);
+            // console.log(product);
+        },
+        onRemoveToCart(product){
+            this.removeToCart(product);
         }
     }
 }
