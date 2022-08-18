@@ -24,7 +24,7 @@ const store = createStore({
       for (let cartItem of getters.getCartItems) {
         item = (cartItem.quantity * cartItem.price) + item;
       }
-      return item;
+      return item.toFixed(2);
     }
   },
   mutations: {
