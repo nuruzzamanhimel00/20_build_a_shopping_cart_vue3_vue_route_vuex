@@ -15,6 +15,9 @@ const store = createStore({
       }else{
         return null;
       }
+    },
+    getCartItems(state){
+      return state.itemsData;
     }
   },
   mutations: {

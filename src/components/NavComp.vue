@@ -6,6 +6,9 @@
                 <router-link :to="{ name:'home'}" class="nav-link"  active-class="active">Home</router-link>
             </li>
             <li class="nav-item">
+                <router-link :to="{  name:'carts'}" class="nav-link"  active-class="active">Cart</router-link>
+            </li>
+            <li class="nav-item">
                 <router-link :to="{ name:'about'}" class="nav-link"  active-class="active">About</router-link>
             </li>
             </ul>
