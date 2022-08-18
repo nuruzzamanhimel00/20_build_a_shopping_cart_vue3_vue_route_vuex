@@ -18,6 +18,13 @@ const store = createStore({
     },
     getCartItems(state){
       return state.itemsData;
+    },
+    cartTottal(state, getters){
+      let item = 0;
+      for (let cartItem of getters.getCartItems) {
+        item = (cartItem.quantity * cartItem.price) + item;
+      }
+      return item;
     }
   },
   mutations: {

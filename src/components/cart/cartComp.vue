@@ -7,7 +7,7 @@
                 <div class="card  m-1 text-center" >
                     <div class="card-body">
                         <h5 class="card-title">{{product.name}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">${{ product_price(product) }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><b>Total cost:</b> ${{ product_price(product) }}</h6>
                         <p class="card-text"> {{description(product.description)}}</p>
                         <h3>In cart:- {{ product.quantity }}</h3>
                 
@@ -16,10 +16,12 @@
             </div>
             
         </div>
+        <cart-summary-payment-cart />
         
     </div>
 </template>
 <script>
+import CartSummaryPaymentCart from '@/components/cart/CartSummaryPaymentCart.vue'
 import {mapGetters} from 'vuex'
 export default {
     data() {
@@ -37,6 +39,9 @@ export default {
         product_price(product){
             return product.quantity * product.price;
         }
+    },
+    components:{
+        CartSummaryPaymentCart
     }
 }
 </script>
